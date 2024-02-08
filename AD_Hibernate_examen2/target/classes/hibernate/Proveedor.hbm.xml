@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="hibernate.Proveedor">
+		<id column="id" name="id" type="int" />
+		<property column="nombre" length="45" name="nombre"
+			type="string" />
+			
+		<set name="concesionario" table="proveedor_concesionario" fetch="select" cascade="all">
+			<key>
+				<column name="id_concesionario" />
+			</key>
+			<many-to-many class="hibernate.Concesionario"
+				column="id_proveedor" />
+		</set>
+		
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="hibernate.Coche">
+	
+		<id column="id" name="id" type="int" />
+		
+		<property column="marca" generated="never" lazy="false"
+			length="45" name="marca" type="string" />
+			
+		<property column="antiguedad" generated="never" lazy="false"
+			name="antiguedad" type="int" />
+			
+		<property column="precio" generated="never" lazy="false"
+			name="precio" type="int" />
+			
+		<many-to-one cascade="all" class="hibernate.Concesionario"
+			column="id_concesionario" name="concesionario" />
+			
+		<one-to-one class="hibernate.Deportivo" name="deportivo" cascade="all" />
+		
+	</class>
+</hibernate-mapping>
